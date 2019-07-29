@@ -9,3 +9,13 @@ pip install Flask
 
 
 ```
+## Set up systemctl  service
+
+```
+Clone artemis to /
+chmod -R 777 /artemis
+cp artemis.service   /etc/systemd/system
+systemctl daemon-reload
+systemctl start artemis
+systemctl  status  artemis
+```
