@@ -1,0 +1,11 @@
+[Unit]
+Description=Artemis application
+After=network.target
+
+[Service]
+User=root
+ExecStart=/usr/bin/python /artemis/artemis.py
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
