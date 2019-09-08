@@ -28,4 +28,4 @@ RUN chmod +x ./kubectl
 RUN mv ./kubectl /usr/local/bin/kubectl
 
 ## To run this docker image need commmand
-# CMD ['python', '/app/app.py']
+# CMD ['python', '/app/artemis.py']

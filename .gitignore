@@ -1,0 +1,4 @@
+*json*
+*set-env
+*.terraform*
+*tfvars*
