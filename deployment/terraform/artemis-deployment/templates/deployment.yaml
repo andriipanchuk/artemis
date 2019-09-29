@@ -38,7 +38,7 @@ spec:
           command:
           - python
           - /app/artemis.py
-          
+      spec:    
 {{- if .Values.imageSecret.enabled }}
       imagePullSecrets:
 {{ toYaml .Values.imageSecret.allSecrets | indent 12 }}
