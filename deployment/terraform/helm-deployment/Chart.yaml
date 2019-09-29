@@ -12,3 +12,19 @@ maintainers:
     email: chaglare@gmail.com
 keywords:
   - ingress
+name: Artemis
+version: v0.1
+kubeVersion: v1.12.8-gke.10
+keywords:
+  - accirrustech
+  - artemis
+  - fuchicorp
+home: https://github.com/fuchicorp/artemis
+sources:
+  - https://github.com/fuchicorp/artemis
+maintainers: # (optional)
+  - name: Fuchicorp
+    email: fuchicorpsolution@gmail.com
+    url: https://github.com/fuchicorp
+icon: https://avatars3.githubusercontent.com/u/46357473?s=200&v=4
+tillerVersion: v2.11.0
