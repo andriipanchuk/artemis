@@ -44,7 +44,7 @@ resources: {}
   #  memory: 128Mi
 
 imageSecret:
-  enabled: false
+  enabled: true
   allSecrets:
   - name: nexus-creds
 
