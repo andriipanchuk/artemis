@@ -19,6 +19,11 @@ spec:
         app.kubernetes.io/name: {{ include "artemis-deployment.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
+{{- if .Values.imageSecret.enabled }}
+      imagePullSecrets:
+{{ toYaml .Values.imageSecret.allSecrets | indent 12 }}
+{{- end }}
+    spec:
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -38,11 +43,6 @@ spec:
           command:
           - python
           - /app/artemis.py
-      spec:    
-{{- if .Values.imageSecret.enabled }}
-      imagePullSecrets:
-{{ toYaml .Values.imageSecret.allSecrets | indent 12 }}
-{{- end }}
 
           resources:
 {{ toYaml .Values.resources | indent 12 }}
