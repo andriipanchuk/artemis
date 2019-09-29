@@ -8,7 +8,7 @@ source:
 engine: gotpl
 icon: https://avatars0.githubusercontent.com/u/46357473?s=400&u=6b8b91915948a9a0a4c848b5d4559b3db025fccc&v=4
 maintainers:
-  - name: Farkhod Sadykov
-    email: sadykovfarkhod@gmail.com
+  - name: Caglar Cavdar
+    email: chaglare@gmail.com
 keywords:
   - ingress
