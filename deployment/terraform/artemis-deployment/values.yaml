@@ -27,7 +27,7 @@ ingress:
   hosts:
     - test-artemis.fuchicorp.com
   tls: 
-    - secretName: artemis-tls
+    - secretName: test-artemis-tls
       hosts:
         - test-artemis.fuchicorp.com
 
