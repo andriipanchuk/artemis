@@ -1,11 +1,11 @@
 data "helm_repository" "stable" {
     name = "stable"
-    url  = "https://github.com/fuchicorp/artemis"
+    url  = "https://kubernetes-charts.storage.googleapis.com"
 }
 
 resource "helm_release" "artemis" {
   name       = "artemis-release"
-  repository = "${data.helm_repository.stable.metadata.0.name}"
+  repository = "https://github.com/fuchicorp/artemis"
   chart      = "artemis"
   version    = "0.1"
 
