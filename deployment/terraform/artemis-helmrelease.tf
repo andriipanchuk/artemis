@@ -5,12 +5,12 @@ data "helm_repository" "stable" {
 
 resource "helm_release" "artemis" {
   name       = "artemis-release"
-  repository = "${file("./artemis-deployment/values.yaml")}"
+  repository = "${file("./artemis-deployment/Chart.yaml")}"
   chart      = "artemis"
   version    = "0.1"
 
   values = [
-    "${file("./artemis-deployment/Chart.yaml")}"
+    "${file("./artemis-deployment/values.yaml")}"
   ]
 
   set {
