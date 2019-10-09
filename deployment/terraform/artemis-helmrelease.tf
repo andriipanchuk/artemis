@@ -10,7 +10,7 @@ resource "helm_release" "artemis" {
   version    = "0.1"
 
   values = [
-    "${file("./artemis-deployment/values.yaml")}"
+    "${file("./artemis-deployment/Chart.yaml")}"
   ]
 
   set {
