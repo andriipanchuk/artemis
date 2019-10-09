@@ -5,7 +5,7 @@
 
 resource "helm_release" "artemis" {
   name       = "artemis-release"
-  repository = "https://github.com/fuchicorp/artemis"
+  repository = "${file("./artemis-deployment/values.yaml")}"
   chart      = "artemis"
   version    = "0.1"
 
