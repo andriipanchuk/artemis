@@ -1,7 +1,7 @@
-# data "helm_repository" "stable" {
-#     name = "stable"
-#     url  = "https://kubernetes-charts.storage.googleapis.com"
-# }
+data "helm_repository" "stable" {
+    name = "stable"
+    url  = "https://kubernetes-charts.storage.googleapis.com"
+}
 
 resource "helm_release" "artemis" {
   name       = "artemis-release"
