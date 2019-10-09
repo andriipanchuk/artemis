@@ -2,7 +2,7 @@ apiVersion: v1
 appVersion: "v0.1"
 description: Artemis
 name: fuchicorp-artemis
-version: v0.1
+version: v1
 kubeVersion: v1.12.8-gke.10
 keywords:
   - artemis
