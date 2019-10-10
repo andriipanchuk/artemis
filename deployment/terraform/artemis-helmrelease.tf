@@ -1,6 +1,6 @@
 data "helm_repository" "stable" {
     name = "stable"
-    url  = "https://kubernetes-charts.storage.googleapis.com"
+    url  = "https://github.com/fuchicorp/artemis/tree/feature-dev/deployment/terraform/artemis-deployment"
 }
 
 resource "helm_release" "artemis" {
