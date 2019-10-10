@@ -1,6 +1,6 @@
 data "helm_repository" "stable" {
     name = "stable"
-    url  = "https://github.com/fuchicorp"
+    url  = "https://kubernetes-charts.storage.googleapis.com"
 }
 
 resource "helm_release" "artemis" {
