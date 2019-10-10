@@ -1,7 +1,8 @@
-# data "helm_repository" "stable" {
-#     name = "stable"
-#     url  = "https://kubernetes-charts.storage.googleapis.com"
-# }
+data "helm_repository" "stable" {
+    name = "stable"
+    url  = "https://github.com/fuchicorp"
+}
+
 resource "helm_release" "artemis" {
   name       = "artemis-release"
   repository = "${file("./artemis-deployment/Chart.yaml")}"
