@@ -2,7 +2,6 @@
 #     name = "stable"
 #     url  = "https://kubernetes-charts.storage.googleapis.com"
 # }
-
 resource "helm_release" "artemis" {
   name       = "artemis-release"
   repository = "${file("./artemis-deployment/Chart.yaml")}"
