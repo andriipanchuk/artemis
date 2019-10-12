@@ -16,7 +16,7 @@ resource "local_file" "artemis_values_local_file" {
 resource "helm_release" "artemis" {
   name       = "${var.name}"
   namespace = "${var.namespace}"
-  chart = "./artemis-deplyment"
+  chart = "./artemis-deployment"
   version    = "${var.version}"
    values = [
     "${data.template_file.artemis_values.rendered}"
