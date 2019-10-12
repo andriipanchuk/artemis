@@ -7,6 +7,7 @@ data "template_file" "artemis_values" {
   }
 }
 
+
 resource "local_file" "artemis_values_local_file" {
   content  = "${trimspace(data.template_file.artemis_values.rendered)}"
   filename = "./artemis-deployment/.cache/values.yaml"
