@@ -1,30 +1,24 @@
-data "helm_repository" "stable" {
-    name = "stable"
-    url  = "https://kubernetes-charts.storage.googleapis.com"
+data "template_file" "artemis_values" {
+  template = "${file("./artemis-deployment/template_values.yaml")}"
+  vars = {
+    domain_name = "${var.domain_name}"
+    docker_image = "${var.docker_image}"
+    docker_image_tag = "${var.docker_image_tag}"
+  }
 }
 
+resource "local_file" "artemis_values_local_file" {
+  content  = "${trimspace(data.template_file.artemis_values.rendered)}"
+  filename = "./artemis-deployment/.cache/values.yaml"
+}
+
+
 resource "helm_release" "artemis" {
-  name       = "artemis-release"
-  repository = "${file("./artemis-deployment/Chart.yaml")}"
-  chart      = "artemis"
-  version    = "0.1"
-
-  values = [
-    "${file("./artemis-deployment/values.yaml")}"
+  name       = "${var.name}"
+  namespace = "${var.namespace}"
+  chart = "./artemis-deplyment"
+  version    = "${var.version}"
+   values = [
+    "${data.template_file.artemis_values.rendered}"
   ]
-
-  set {
-    name  = "cluster.enabled"
-    value = "true"
-  }
-
-  set {
-    name  = "metrics.enabled"
-    value = "true"
-  }
-
-  set_string {
-    name  = "service.annotations.artemis\\.io/port"
-    value = "5000"
-  }
 }

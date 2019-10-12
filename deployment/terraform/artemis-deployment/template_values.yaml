@@ -5,8 +5,8 @@
 replicaCount: 1
 
 image:
-  repository: docker.fuchicorp.com/artemis-dev
-  tag: 0.2
+  repository: ${docker_image}
+  tag: ${docker_image_tag}
   pullPolicy: Always
 
 nameOverride: ""
@@ -25,11 +25,11 @@ ingress:
      certmanager.k8s.io/cluster-issuer: letsencrypt-fuchicorp-prod
   path: /
   hosts:
-    - test-artemis.fuchicorp.com
+    - test-artemis.${domain_name}
   tls: 
     - secretName: test-artemis-tls
       hosts:
-        - test-artemis.fuchicorp.com
+        - test-artemis.${domain_name}
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
