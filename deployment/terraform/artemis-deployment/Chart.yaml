@@ -10,7 +10,7 @@ keywords:
   - fuchicorp
 home: https://github.com/fuchicorp/artemis
 sources:
-  - https://github.com/fuchicorp/artemis
+  - https://github.com/fuchicorp/artemis.git
 maintainers:
   - name: FuchiCorp
     email: fuchicorpsolution@gmail.com
