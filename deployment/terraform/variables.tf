@@ -24,7 +24,7 @@ variable "namespace" {
   default = "test"
 }
 variable "version" {
-  default = "6.0.1"
+  default = "0.1"
 }
 variable "name" {
   default = "artemis"
