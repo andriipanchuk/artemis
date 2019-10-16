@@ -4,7 +4,7 @@ description: Artemis
 name: fuchicorp-artemis
 version: "0.1"
 #kubeVersion: v1.12.8-gke.10
-kubeVersion: v1.12.9-gke.15
+kubeVersion: v1.13.10-gke.0
 keywords:
   - artemis
   - accirustech
