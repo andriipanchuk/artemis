@@ -1,9 +1,8 @@
 data "template_file" "artemis_values" {
   template = "${file("./artemis-deployment/template_values.yaml")}"
   vars = {
-    domain_name = "${var.domain_name}"
-    docker_image = "${var.docker_image}"
-    docker_image_tag = "${var.docker_image_tag}"
+    deployment_endpoint = "${lookup(var.dns_endpoint_artemis, "${var.deployment_environment}")}"
+    deployment_image = "${var.deployment_image}"
   }
 }
 
@@ -13,8 +12,8 @@ resource "local_file" "artemis_values_local_file" {
 }
 
 resource "helm_release" "artemis" {
-  name       = "${var.name}"
-  namespace = "${var.namespace}"
+  name       = "${var.deployment_environment}-artemis-fuchicorp"
+  namespace = "${var.deployment_environment}"
   chart = "./artemis-deployment"
   version    = "${var.version}"
    values = [

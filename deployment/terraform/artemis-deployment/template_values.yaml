@@ -5,8 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: ${docker_image}
-  tag: ${docker_image_tag}
+  repository: ${deployment_image}
   pullPolicy: Always
 
 nameOverride: ""
@@ -21,15 +20,14 @@ ingress:
   enabled: true
   annotations: 
      kubernetes.io/ingress.class: nginx
-     kubernetes.io/tls-acme: "true"
      certmanager.k8s.io/cluster-issuer: letsencrypt-fuchicorp-prod
   path: /
   hosts:
-    - test-artemis.${domain_name}
+    - ${deployment_endpoint}
   tls: 
-    - secretName: test-artemis-tls
+    - secretName: artemis-tls
       hosts:
-        - test-artemis.${domain_name}
+        - ${deployment_endpoint}
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
