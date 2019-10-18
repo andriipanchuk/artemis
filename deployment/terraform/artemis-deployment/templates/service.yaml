@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "artemis-deployment.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "artemis-deployment.name" . }}
+    helm.sh/chart: {{ include "artemis-deployment.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort }}
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: {{ include "artemis-deployment.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}

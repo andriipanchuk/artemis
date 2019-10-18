@@ -1,5 +1,5 @@
 variable "deployment_environment" {
-  default = "prod"
+  default = "dev"
 }
 
 variable "dns_endpoint_artemis" {
@@ -12,10 +12,13 @@ variable "dns_endpoint_artemis" {
   }
 }
 
-variable "artemis_image" {
+variable "deployment_image" {
   default = "docker.fuchicorp.com/artemis-dev:0.2"
 }
 
-variable "lets_encrypt_email" {
-  default = "fuchicorpsolutions@gmail.com"
+
+variable "version" {
+  default = "0.1"
 }
+
+
