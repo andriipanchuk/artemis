@@ -12,7 +12,7 @@ resource "local_file" "artemis_values_local_file" {
 }
 
 resource "helm_release" "artemis" {
-  name       = "${var.deployment_environment}-artemis-fuchicorp"
+  name       = "${var.deployment_environment}-artemis-"
   namespace = "${var.deployment_environment}"
   chart = "./artemis-deployment"
   version    = "${var.version}"
