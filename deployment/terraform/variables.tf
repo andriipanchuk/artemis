@@ -13,7 +13,7 @@ variable "dns_endpoint_artemis" {
 }
 
 variable "deployment_image" {
-  default = "docker.fuchicorp.com/artemis-dev:0.2"
+  default = "docker.fuchicorp.com/artemis-dev"
 }
 
 
