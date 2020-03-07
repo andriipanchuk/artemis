@@ -23,9 +23,9 @@ RUN python -m pip install -r requirements.txt
 EXPOSE 5000
 
 ## Install kubectl and make sure excecutable
-RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kubectl
-RUN chmod +x ./kubectl
-RUN mv ./kubectl /usr/local/bin/kubectl
+# RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kubectl
+# RUN chmod +x ./kubectl
+# RUN mv ./kubectl /usr/local/bin/kubectl
 
 ## To run this docker image need commmand
-# CMD ['python', '/app/artemis.py']
+CMD ["/bin/sh", "-c", "python /app/artemis.py"]
