@@ -19,22 +19,24 @@ spec:
         app.kubernetes.io/name: {{ include "artemis.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
+      imagePullSecrets:
+      - name: nexus-creds
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 80
+              containerPort: 5000
               protocol: TCP
           livenessProbe:
             httpGet:
               path: /
-              port: http
+              port: 5000
           readinessProbe:
             httpGet:
               path: /
-              port: http
+              port: 5000
           resources:
 {{ toYaml .Values.resources | indent 12 }}
     {{- with .Values.nodeSelector }}
