@@ -73,12 +73,17 @@ podTemplate(name: k8slabel, label: k8slabel, yaml: slavePodTemplate, showRawYaml
                 '''
             }
 
+            stage("Docker Build") {
+                dockerImage = docker.build("artemis") 
+            }
 
+            stage("Docker Push") {
+                    docker.withRegistry('https://docker.fuchicorp.com', 'nexus-docker-creds') {
+                    dockerImage.push("0.${env.BUILD_NUMBER}") 
+                    dockerImage.push("latest") 
+                }
+            }
             
-
-
-
-
 
 
         }
