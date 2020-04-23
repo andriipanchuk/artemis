@@ -5,7 +5,7 @@
 replicaCount: 3
 
 image:
-  repository: docker.fuchicorp.com/artemis
+  repository: ${deployment_image}
   tag: latest
   pullPolicy: IfNotPresent
 
@@ -24,11 +24,11 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   path: /
   hosts:
-    - artemis.fuchicorp.com
+    - ${deployment_endpoint}
   tls:
    - secretName: chart-artemis-tls
      hosts:
-       - artemis.fuchicorp.com
+       - ${deployment_endpoint}
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
