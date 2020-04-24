@@ -6,6 +6,8 @@ module "artemis-deploy" {
   deployment_path        = "artemis"
 
   template_custom_vars = {
+
     deployment_image = "${var.deployment_image}"
+  
   }
 }

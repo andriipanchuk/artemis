@@ -28,9 +28,8 @@ ingress:
   tls:
    - secretName: chart-artemis-tls
      hosts:
-       - ${deployment_endpoint}
- 
- imageSecret:
+        - ${deployment_endpoint}
+imageSecret:
   enabled: true
   allSecrets:
   - name: nexus-creds
