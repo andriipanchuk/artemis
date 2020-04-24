@@ -29,6 +29,11 @@ ingress:
    - secretName: chart-artemis-tls
      hosts:
        - ${deployment_endpoint}
+ 
+ imageSecret:
+  enabled: true
+  allSecrets:
+  - name: nexus-creds
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
